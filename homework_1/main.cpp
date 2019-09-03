@@ -70,6 +70,7 @@ int loadClassList(Student *classList, string fileName)
        
         // Read one line in the file into one struct at array location `person`
         fin >> classList[person].fname >> classList[person].lname >>classList[person]. n ;//>> classList[person].grades[1];
+        // using for loop to read the grades from file
          for(int j=0;j<classList[person].n;j++){
          fin>>classList[person].grades[j] ;
          }
@@ -100,18 +101,19 @@ int loadClassList(Student *classList, string fileName)
  */
 void printClassList(Student *classList, int classSize)
 {
+    // getting maximum length of fname+lname
     int max=0;
-    //cout<<"MAX: "<< max;
+    
     for(int i=0; i<classSize;i++)
     if(classList[i].fname.length()+classList[i].lname.length()>max)
            max=classList[i].fname.length()+classList[i].lname.length();
-    //cout<<"Max is: "<<max<<"\r\n";
+    
     cout<<"Students"<<endl;
     cout<<"================================="<<endl;
     
     for (int person = 0; person < classSize; person++)
     {
-         
+       // printing fmane and lname and then  : and grades  
        cout<<person+1<<". "<<setw(3)<< classList[person].fname << " "
             << classList[person].lname ;
 
