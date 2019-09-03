@@ -12,7 +12,6 @@
 #include <ctime>    // access system clock (we used for rand function)
 #include <string>   //
 #include <fstream>  // read a write files
-
 #define SIZE 10 // gives us a CONSTANT to use anywhere in our program \
                 // we capitalize constants so we know they are not variables!
 
@@ -44,7 +43,7 @@ struct Student
     string lname;
     int numGrades;
     int grades[10];
-    int n;
+    int n;      // n is the number of student grades
 };
 
 /**
