@@ -96,6 +96,7 @@ int loadClassList(Student *classList, string fileName)
  * 
  * Returns:
  * 
+ * 
  *      void
  */
 void printClassList(Student *classList, int classSize)
