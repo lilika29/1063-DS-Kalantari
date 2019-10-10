@@ -1,1 +1,43 @@
+clang version 7.0.0-3~ubuntu0.18.04.1 (tags/RELEASE_700/final)
+ clang++-7 -pthread -std=c++11 -o main main.cpp stack.cpp
+ ./main
+0.1
+reducing
+the smallest size is 5
+0 0 0 0 0 0.4
+0.6
+0.8
+the largest size is 7
+0.714286
+0.857143
+the largest size is 10
+0.7
+0.8
+the largest size is 15
+0.6
+0.666667
+0.733333
+0.8
+the largest size is 22
+0.590909
+0.636364
+0.681818
+0.636364
+0.590909
+0.545455
+0.5
+0.454545
+0.409091
+0.363636
+0.318182
+0.272727
+0.227273
+0.181818
+reducing
+the smallest size is 11
+0 9 8 7 0 0 0 0 0 0 0 0.272727
+0.181818
+reducing
+the smallest size is 5
+0 9 8 7 0 0.2
 
