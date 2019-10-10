@@ -1,6 +1,4 @@
-clang version 7.0.0-3~ubuntu0.18.04.1 (tags/RELEASE_700/final)
- clang++-7 -pthread -std=c++11 -o main main.cpp stack.cpp
- ./main
+
 0.1
 reducing
 the smallest size is 5
