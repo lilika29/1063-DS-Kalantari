@@ -4,39 +4,70 @@
  * CMPS 1063- Dr .Griffin
  * List stack definition file. This stack hold animal types. 
 */
-#include "ListStack.h"    // include our stack definition
-#include <fstream>        
 #include <iostream>
 
 using namespace std;
 
-int main() {
-    ifstream fin("animals.txt");  // input file of animal info                   
-     Animal *a; 
-     Animal *b;                   // animal pointer used to hold popped animals
-    ListStack LS;                 // List based stack object
-    cout<<"Leila Kalantari"<<endl<<endl;
-    // While still animals in the file
-    while (!fin.eof()) {
-       a = new Animal();  // allocate memory for an animal
-       fin >> a->name >> a->weight >> a->scary;  // load animal with file data
-       LS.Push(a);}
-       b = new Animal("tiger",170,0.87);
-       LS.Push(b);                              // push animal onto the stack
-    
+/**
+ * Animal Type
+ */
+struct Animal {
+    string name;
+    double weight;
+    double scary;
+
+    // Default constructor
+    Animal() {
+        name = "";
+        weight = 0.0;
+        scary = 99.0;
+    }
+
+    // Should add an overloaded constructor
+     //my hw code
+    Animal(string N,double W,double S){
+      name=N;
+      weight=W;
+      scary=S;
+       }
 
 
-    LS.Print();             // Print the stack
+};
 
-    cout << endl;           // ummm
+// Overload "<<" operator for animals
+ostream &operator<<(ostream &, const Animal *);
 
-    a = LS.Pop();           // get animal off top of stack
-    
-    cout << a <<" is poped animal "<< endl;      // print animal (cout operator overloaded)
+/**
+ * Node type.
+ * 
+ * We seperate Animal from Node so we can return an "Animal"
+ * when we pop the stack, and don't have to return a "node"
+ */
+struct Node {
+    Animal *A;
+    Node *Next;
 
-    a = LS.Pop();           // get animal off top of stack again
-    
-    cout << a <<" is poped animal "<< endl;      // print animal (cout operator overloaded)
+    // Needs a default constructor
 
-    LS.Print();             // print the stack
-}
+    Node(Animal *a) {
+        A = a;
+        Next = NULL;
+    }
+};
+
+/**
+ * ListStack
+ * 
+ * List based stack implementation
+ * 
+ */
+class ListStack {
+private:
+    Node *Top;
+
+public:
+    ListStack();          // constructor
+    void Push(Animal *);  // stack gets Animals
+    Animal *Pop();        // Pop returns top animal
+    void Print();         // print stack for debugging
+};
